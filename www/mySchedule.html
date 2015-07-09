@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<!--
+    Copyright (c) 2012-2014 Adobe Systems Incorporated. All rights reserved.
+
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale = 1.0, maximum-scale=1.0, user-scalable=no" />
+        <link rel="stylesheet" type="text/css" href="css/index.css" />
+        <link rel="stylesheet" href="css/font-awesome/font-awesome.min.css">
+        <title>the Source Presents Fine Arts</title>
+    <style>
+        #top{
+            padding: 10%;
+        }
+
+
+        #section {
+        color:white;
+        border: 25px solid black;
+        margin: 0;
+        }
+        .button, a.button, #footer a.button, #searchsubmit, input[type="submit"] {
+        border: solid;
+        border-radius: 0px;
+        border-width: 5px;
+        background: none;
+        width: 160px;
+        padding:10%;
+        }
+
+        .button:hover{
+        border-radius: 0px;
+        border-width: 5px;
+        border-color: #000;
+        background: #f40064;
+        opacity: 1;
+
+        .button:label{
+        color:#000;
+        }
+
+
+
+        </style>
+    <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+    <script type="text/javascript" charset="utf-8">
+
+    // Wait for device API libraries to load
+    //
+    function onLoad() {
+        getUserInfo();
+    }
+
+    function getUserInfo(){
+        var userName = window.localStorage.getItem("name");
+        if(userName == null || userName == ""){
+            window.location.href = 'login.html';
+        }
+        // document.getElementById("userName").innerHTML = "Welcome " + userName
+        var mySchedule = "http://thesourcepresentsfinearts.com/event-by-user/" + userName;
+        document.getElementById("mySchedule").href = mySchedule
+        window.open(mySchedule, "mySchedule", "toolbar=yes, scrollbars=yes, resizable=yes, top=500, left=500, width=1200, height=1600");
+    }
+
+    </script>
+</head>
+<body onload="onLoad()" style="height:100%;background:#000;">
+
+<!-- <div id="section">
+    <div class="right">
+        <a href="login.html"><p id="userName"></p></a>
+    </div>
+</div> -->
+
+    
+    <iframe src="" name="mySchedule" id="mySchedule" style="min-height:90%;width:100%;"></iframe>
+
+
+   <footer id="footer" style="background:#000;position: fixed; bottom: 0;left: 0;right: 0;height: 50px;">
+        <div id="section" align="center">
+            <a class="list-group-item" href="index.html"><i class="fa fa-home fa-fw"></i>&nbsp; Home</a>
+            <a class="list-group-item" href="#"><i class="fa fa-list-alt"></i>&nbsp; My Schedule</a>
+            <a class="list-group-item" href="#"><i class="fa fa-pencil fa-fw"></i>&nbsp; Collaborate</a>
+            <a class="list-group-item" href="#"><i class="fa fa-music fa-fw"></i>&nbsp; Music</a>
+        </div>
+   </footer>
+    </body>
+
+</html>
