@@ -5,12 +5,6 @@
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
     <title></title>
 
-    <style>
-      .angular-google-map-container {
-          width: 100%;
-          height: 504px;
-      }
-    </style>
 
 
     <script src="js/ionic.bundle.min.js"></script>
@@ -23,53 +17,8 @@
     -->
 
 
-    <script>
-// Ionic Starter App
-
-// angular.module is a global place for creating, registering and retrieving Angular modules
-// 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
-// the 2nd parameter is an array of 'requires'
-// 'starter.services' is found in services.js
-// 'starter.controllers' is found in controllers.js
-angular.module('app', ['ionic'])
-
-.run(function($ionicPlatform) {
-  $ionicPlatform.ready(function() {
-    // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
-    // for form inputs)
-    if(window.cordova && window.cordova.plugins.Keyboard) {
-      cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
-    }
-    if(window.StatusBar) {
-      // org.apache.cordova.statusbar required
-      StatusBar.styleDefault();
-    }
-  });
-})
-
-.config(function($stateProvider, $urlRouterProvider) {
-
-  // Ionic uses AngularUI Router which uses the concept of states
-  // Learn more here: https://github.com/angular-ui/ui-router
-  // Set up the various states which the app can be in.
-  // Each state's controller can be found in controllers.js
-  $stateProvider
-    
-    .state('page6', {
-      url: '/tabs',
-      templateUrl: 'page6.html'
-    })
-    ;
-
-  // if none of the above states are matched, use this as the fallback
-  
-  $urlRouterProvider.otherwise('/tabs');
-  
-
-});
-
-
-    </script>
+    <script src="js/ionic.bundle.min.js"></script>
+    <script src="js/app.js"></script>
     <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
     <script type="text/javascript" charset="utf-8">
 
@@ -115,7 +64,28 @@ angular.module('app', ['ionic'])
         <ion-nav-view></ion-nav-view>
     </div>
 </div>
-<script id="page6.html" type="text/ng-template">
+<script id="login.html" type="text/ng-template">
+<ion-view title="Login">
+    <ion-content style="background: #000;"></ion-content>
+    <ion-content class="center" ng-controller="Login" has-header="true" style="background: #000;">
+                  <div class="row">
+                <div class="col col-80  col-offset-10">
+            <img src="http://i0.wp.com/thesourcepresentsfinearts.com/wp-content/uploads/2015/03/tSp-Mob2.png" style="width: 100%; height: auto;">
+            <form>
+            <ion-list>
+                <label class="item item-input">
+                    <span class="input-label">Enter Your Name</span>
+                    <input type="text" ng-model="name" placeholder="">
+                </label>
+            </ion-list>
+            <div class="spacer" style="height: 40px;"></div>           
+
+              <button class="button button-dark button-block" ui-sref="home" ng-click="login(name)">Login</button>
+              </div>
+              </div>
+              </ion-content>
+</ion-view></script>
+<script id="home.html" type="text/ng-template">
 <ion-view title="the Source Presents">
     <ion-tabs class="tabs-dark tabs-icon-top">
         <ion-tab title="Home" icon="ion-ios-home">
@@ -132,10 +102,41 @@ angular.module('app', ['ionic'])
             </ion-content>
         </ion-tab>
         <ion-tab title="MY SCHEDULE" icon="ion-ios-calendar">
-            <ion-content padding="true" class="has-header" style="background: #000;"></ion-content>
+            <ion-content padding="true"  ng-controller="Login" class="has-header" style="background: #000;">
+            <p>{{URL}} </p>
+             <iframe ng-src="{{URL}}"></iframe>></iframe>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            </ion-content>
         </ion-tab>
         <ion-tab title="GLOBAL SCHEDULE" icon="ion-ios-clock">
-            <ion-content padding="true" class="has-header" style="background: #000;"></ion-content>
+            <ion-content class="center" ng-controller="Login" has-header="true" style="background: #000;">
+            form>
+            <ion-list>
+                <label class="item item-input">
+                    <span class="input-label">Username</span>
+                    <input type="text" ng-model="name" placeholder="">
+                </label>
+            </ion-list>
+            <div class="spacer" style="height: 40px;"></div>           
+
+              <button class="button" ng-click="login(name)">Save Data</button>
+              <button class="button" ng-click="loadData()">Save Data</button>
+              </form>
+              </ion-content>
+
         </ion-tab>
         <ion-tab title="WEBSITE" icon="ion-ios-world-outline">
             <ion-content padding="false" class="has-header" style="background: #000;">
